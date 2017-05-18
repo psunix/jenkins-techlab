@@ -1,10 +1,15 @@
 pipeline {
-    agent any
-    stages {
-        stage('Greeting') {
-            steps {
-                echo 'Hello, World!'
-            }
-        }
+  agent any
+  stages {
+      stage('Greeting') {
+          steps {
+              echo 'Hello, World!'
+          }
+      }
+  }
+  post {
+    always {
+      notifyPuzzleChat('bbt')
     }
+  }
 }
